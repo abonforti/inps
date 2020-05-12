@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+
+<html lang="IT">
+
+<head>
+
+    <!-- MB 
+   	<base href="/">
+    -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bando Impresa SIcura – Invitalia</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap-italia.min.css" />
+    <link rel="stylesheet" href="./css/site.css" />
+
+    <!--<script src="./js/core-js-bundle-3.0.1.min.js"></script>-->
+    
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/moment.min.js"></script>
+	<script src="./js/moment-timezone-with-data.min.js"></script>
+    <script src="./js/popper.min.1_14_7.js"></script>
+    
+    <script src="./js/cd-env-configs.js"></script>
+	<script src="./js/cd.js"></script>
+	
+	<script type="text/javascript"> initializePageClickday(); </script>
+
+</head>
+<body class="d-flex flex-column">
+    
+<header class="it-header-wrapper">
+    <div class="it-nav-wrapper">
+        <div class="it-header-center-wrapper invitalia-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="it-header-center-content-wrapper ">
+                            <div class="it-brand-wrapper">
+                                <a href="https://www.invitalia.it/cosa-facciamo/emergenza-coronavirus/impresa-sicura" title="Impresa Sicura – Invitalia" target="_blank">
+                                    <img src='./img/logo-invitalia.png' class="logo-h" />
+                                    <div class="it-brand-text">
+										<br>
+                                        <h2 class="font-weight-bold">Bando Impresa SIcura</h2>
+                                        <p>Rimborso delle spese per l’acquisto di dispositivi e strumenti di protezione individuale</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main id="page-content">
+	<div class="container my-4 container-invitalia" >
+		<h3 class="text-uppercase font-weight-bold">Bando Impresa SIcura</h3>
+		<h4 class="text-uppercase font-weight-bold">Rimborso delle spese per l’acquisto di dispositivi e strumenti di protezione individuale</h4>
+		<br>
+
+        <h3 class="text-uppercase font-weight-bold">FASE-PRENOTAZIONE</h3>
+        <p>
+            In questa pagina, le imprese interessate possono inserire i dati per inviare una prenotazione del rimborso. <br> 
+			L’invio è consentito, dalle ore 9.00 alle ore 18.00 di tutti i giorni lavorativi, dal lunedì al venerdì, a partire dal giorno 11 maggio 2020 ed entro il giorno 18 maggio 2020.
+        </p>
+        <br>
+        
+        
+        <form action="#" class="form" method="post" id="publishRequestForm" >
+            <div class="container">
+            	<div class="row">
+            		<div class="col-sm-6 invitalia-desc">
+	            		<p class="font-weight-semibold mb-0">Codice fiscale dell’impresa proponente:</p>
+		            </div>
+		            <div class="col-sm-6">
+			            <div class="form-row">
+			                <div class="form-group" style="width: 300px;">
+			                    <input type="text" class="form-control" id="codiceFiscaleImpresa" name="codiceFiscaleImpresa" size="64" 
+			                    onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)'					
+								minlength="11" maxlength="16"
+			                    title="Immettere il codice fiscale dell'impresa proponente">
+			                    <div id ="invCampo1" class="invalid-feedback"></div>
+			                </div>
+		       	     </div>
+            		</div>
+            	</div>
+            	 	
+            	 <div class="row">
+            		<div class="col-sm-6 invitalia-desc">
+           				<p class="font-weight-semibold mb-0">Codice fiscale del legale rappresentante, <br>del titolare o della persona giuridica  in caso di impresa proponente amministrata da soggetti diversi dalle persone fisiche:</p>
+          			 </div>
+           			<div class="col-sm-6">
+           			<br><br>
+            			<div class="form-row">
+               		 		<div class="form-group" style="width: 300px;">
+                    			<input type="text" class="form-control" id="codiceFiscaleLegaleRappr" name="codiceFiscaleLegaleRappr" size="64" 
+                    			onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)'					
+								minlength="11" maxlength="16"
+                    			title="Immettere il codice fiscale Legale rappresentante">
+                    			<div id ="invCampo2" class="invalid-feedback"></div>
+                			</div>
+            			</div>
+            		</div>
+            	</div>
+           		
+           		<div class="row">
+            		<div class="col-sm-6 invitalia-desc">
+            			<p class="font-weight-semibold mb-0">Importo da rimborsare:</p>
+            		</div>
+	            	<div class="col-sm-6">
+	            		<div class="form-row">
+	                		<div class="form-group" style="width: 300px;">
+			                    <input type="number" class="form-control" id="importo" name="importo" 
+			                    required min="500" max="150000" maxlength = "6"
+								onkeyup="checkNumber(this)"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'     					
+								oninput="maxLengthCheck(this)"
+			                    title="Immettere l'importo richiesto">
+			                    <div id ="invCampo3" class="invalid-feedback"></div>
+			                    <small id="importoHelp" class="flex-nowrap form-text text-muted">Importo in € compreso fra 500 e 150000 <br>(solo cifre senza decimali)</small>
+	                		</div>
+	            		</div>
+	            	</div>
+	            </div>
+	            <br>
+            	<div class="row">
+            		<div class="col-6"></div>
+            		<div class="col-sm-3 ">
+            			<div class="form-check form-check-group border">
+				        	<input id="checkBot" type="checkbox" >
+				        	<label for="checkBot" class="checkBot">Non sono un robot</label>
+				        	<div id ="invCampo4" class="invalid-feedback"></div>
+				        	
+      					</div>
+      					
+      				</div>
+      			</div>
+      			<div class="row">
+            		<div class="col-6"></div>
+					<div class="col-sm-6 align-right">
+                		<div class="form-group col">
+                    		<button type="button" class="btn btn-primary "  id="publishRequestSubmitButton">Invio</button>
+               	 		</div>
+            		</div>
+            	</div>	
+            </div>
+            <p>Il buon esito dell’invio della prenotazione è attestato dal messaggio contenente il codice identificativo della prenotazione e il relativo orario.</p>
+            <p>Nel caso in cui i codici fiscali inseriti non siano corretti o nel caso in cui differiscano dalle informazioni desumibili dal Registro imprese, la prenotazione del rimborso risulta irricevibile e si considera decaduta.</p>
+            
+        </form>
+        
+    </div>
+</main>
+
+<div class="cookiebar bg-dark p-4 hide" aria-hidden="true">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-6">
+                <span class="text-white small">Questo sito utilizza cookie tecnici<br>Proseguendo nella navigazione accetti l’utilizzo dei cookie.</span>
+            </div>
+            <div class="col-12 col-md-6 mt-4 mt-md-0 d-flex justify-content-end">
+<!--                 <a class="nav-link" href="https://www.mise.gov.it/index.php/it/privacy-sito" target="_blank">Privacy policy</a>                 -->
+                <button class="btn btn-primary mr-2" data-accept="cookiebar">Accetto</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<footer class="it-footer" id="sticky-footer">
+		<div class="it-footer-main invitalia-footer">
+			<div class="container">
+				<section>
+					<div class="row clearfix">
+						<div class="col-sm-6">
+							<div class="it-brand-wrapper">
+								<a href="https://www.invitalia.it" title="Invitalia" target="_blank"> <img src='./img/logo-invitalia.png' class="logo-b" /></a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-2 pb-2"></div>
+						<div class="col-lg-4 col-md-4 col-sm-4 pb-2">
+							<h4>
+								<a>Link utili:</a>
+							</h4>
+							<div class="link-list-wrapper">
+								<ul class="footer-list link-list clearfix">
+									<li><a href="contatti.html" title="Vai alla pagina: Contatti">Contatti
+									</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<h4>
+								<a>Documenti:</a>
+							</h4>
+							<div class="link-list-wrapper">
+								<ul class="footer-list link-list clearfix">
+									<li><a class="list-item" target="_blank"
+										href="doc/Guida alla fase di prenotazione Bando Impresa SIcura.pdf"
+										title="Vai alla pagina: Istruzioni operative">Istruzioni
+											operative</a></li>
+											<li><a class="list-item" target="_blank"
+										href="doc/Informativa privacy.pdf"
+										title="Vai alla pagina: Informativa privacy">Informativa privacy</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</footer>
+<script>
+$(document).ready(function() {
+	
+	var pIvaLength = 11;
+	var cfLenght = 16;
+	var descErr1 = "Inserire un codice fiscale valido";
+	var descErr2 = "Il codice fiscale inserito non può essere uguale al codice fiscale impresa";
+	var descErrImporto1 = "Inserire un valore tra 500 e 150000"; 
+	var descErrBot = "E' obbligatorio inserire la spunta"; 
+
+	$("#publishRequestSubmitButton").click(function() {
+		$("#invCampo1").removeClass("inv-campo");
+		$("#invCampo2").removeClass("inv-campo");
+		$("#invCampo3").removeClass("inv-campo");
+		$("#invCampo4").removeClass("inv-campo");
+
+		
+		var var1Valid = "N";
+		var var2Valid = "N";
+		var var3Valid = "N";
+		var varCheckBot = "N";
+		var importoMin = 500;
+		var importoMax = 150000;
+		
+		var var1 = $("#codiceFiscaleImpresa").val();
+		var var2 = $("#codiceFiscaleLegaleRappr").val();
+		var var3 = $("#importo").val();
+		//Controllo campo1
+		if (pIvaLength == var1.length) {
+			if (!isNaN(var1)) {
+				var1Valid = "S";
+			}else{
+				$("#invCampo1").addClass("inv-campo");
+				$("#invCampo1").text(descErr1);
+
+			}
+		} else if (cfLenght == var1.length) {
+			var1Valid = "S";
+		}else{
+			$("#invCampo1").addClass("inv-campo");
+			$("#invCampo1").text(descErr1);
+
+		}
+		//Controllo campo2
+		if (pIvaLength == var2.length) {
+			if (!isNaN(var2)) {
+				if (pIvaLength == var1.length && var1 == var2) {
+					$("#invCampo2").addClass("inv-campo");
+					$("#invCampo2").text(descErr2);
+				}else{
+					var2Valid = "S";
+				}
+			}else{
+				$("#invCampo2").addClass("inv-campo");
+				$("#invCampo2").text(descErr1);
+
+			}
+		} else if (cfLenght == var2.length) {
+			var2Valid = "S";
+		}else{
+			$("#invCampo2").addClass("inv-campo");
+			$("#invCampo2").text(descErr1);
+
+		}
+		//Controllo campo3
+		if(import_ranges(var3,importoMin,importoMax)){
+			var3Valid = "S";
+		}else{
+			$("#invCampo3").addClass("inv-campo");
+			$("#invCampo3").text(descErrImporto1);
+
+		}
+		
+		var checkBox = document.getElementById("checkBot");
+		 if (checkBox.checked == true){
+			 varCheckBot = "S";
+		 }else{
+			 $("#invCampo4").addClass("inv-campo");
+			$("#invCampo4").text(descErrBot);
+		 }
+		
+		if ("S" == var1Valid && "S" == var2Valid && "S" == var3Valid && "S" == varCheckBot) {
+			$("#campo1Modal").html(var1);
+			$("#campo2Modal").html(var2);
+			$("#campo3Modal").html(var3);
+			$("#publishRequestForm").submit();		
+
+		}
+	});
+});
+
+$( "#codiceFiscaleImpresa" ).focus(function() {
+	$("#invCampo1").removeClass("inv-campo");
+});
+$( "#codiceFiscaleLegaleRappr" ).focus(function() {
+	$("#invCampo2").removeClass("inv-campo");
+});
+$( "#importo" ).focus(function() {
+	$("#invCampo3").removeClass("inv-campo");
+});
+
+function import_ranges(x,importoMin,importoMax) {
+	  if (x >= importoMin && x <= importoMax) {
+	    return true;
+	   } else {
+	    return false;
+	  }
+}
+
+	
+$("input.campi-input").on({
+	  keydown: function(e) {
+	    if (e.which === 32)
+	      return false;
+	  },
+	  change: function() {
+	    this.value = this.value.replace(/\s/g, "");
+	  }
+	});
+
+
+function noZero(){
+	this.value = this.value.replace(/^0+/, '')
+}
+
+function maxLengthCheck(object) {
+if (object.value.length > object.max.length)
+  object.value = object.value.slice(0, object.max.length)
+}
+
+function checkNumber(object){
+	object.value = object.value.replace(/^0+/, '')
+}
+</script>
+    <script>window.__PUBLIC_PATH__ = './css/fonts/'</script>
+    <script src="./lib/bootstrap/dist/js/bootstrap-italia.bundle.min.js"></script>
+
+	<script>
+  function maxLengthCheck(object) {
+    if (object.value.length > object.max.length)
+      object.value = object.value.slice(0, object.max.length)
+  }
+  
+  
+  $("input").bind("paste", function(e){
+	    var pastedData = e.originalEvent.clipboardData.getData('text');
+	    pastedData = pastedData.replace(/[^a-zA-Z0-9]/g, "");
+	    var idInput = e.target.id;
+	    $("#"+idInput).val(pastedData);
+	    e.preventDefault();	    
+	} );
+  $("input").bind('keyup', function (e) {
+	  var idInput = e.target.id;
+	    $("#"+idInput).val($("#"+idInput).val().toUpperCase());
+	});
+  
+  
+</script>
+
+
+</body>
+</html>
