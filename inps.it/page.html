@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+
+<html>
+	<head>		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache,no-store">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		 
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" > 
+	<title>INPS - Autenticazione</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=no" >
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" > 
+	<meta name="resource-type" content="document" > 			
+	<meta name="Revisit-after" content="10" > 
+	<meta name="author"		 content="INPS - Direzione Centrale Sistemi Informativi e Telecomunicazioni" > 
+	<meta name="Publisher"	 content="INPS - Direzione Centrale Sistemi Informativi e Telecomunicazioni" > 
+	<meta name="Copyright"	 content="INPS - 2011" > 	
+	<meta name="description" content="INPS - Istituto Nazionale della Previdenza Sociale" > 
+	
+	<link rel="stylesheet" href="//www.inps.it/bussola/include/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//www.inps.it/bussola/include/titilium/local-titillium.css">
+    <link rel="stylesheet" href="//www.inps.it/NuovoPortaleInps/include/stylebussola.css" type="text/css" >
+	<link rel="stylesheet" href="//www.inps.it/bussola/include/newstylebussola2-new.css?v=16" type="text/css" >
+	<link rel="stylesheet" href="//www.inps.it/NuovoPortaleInps/asset/css/trasforma.css" type="text/css" >
+	
+	
+	<!--[if lt IE 8]> 
+			<link rel="stylesheet" type="text/css" href="//www.inps.it/NuovoPortaleInps/asset/css/trasforma_ie.css" media="screen" >
+	 		
+			<style type="text/css">#objTable .BusTab1Td3 input {max-height:20px;} </style>
+		<![endif]-->
+	<!--[if lte IE 9]>
+	        <link rel="stylesheet" type="text/css" href="//www.inps.it/bussola/include/newstylebussola_ie2.css?v=33" media="screen" >
+	<![endif]-->
+	<script type="text/javascript">
+	    var opzioni = { basePath: '/#ApplicationPath#/' };
+       var sPathBarDelPortale = "/bussola/PrestazioniEServizi/Autenticazione";        
+	</script> 	
+    <script type="text/javascript" src="//www.inps.it/search122/js/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="//www.inps.it/bussola/include/libPortale.js?v=11"></script> 	 
+	<link rel="icon"			type="image/x-icon" href="//www.inps.it/NuovoPortaleInps/asset/img/favicon.ico" > 
+	<link rel="shortcut icon"	type="image/x-icon" href="//www.inps.it/NuovoPortaleInps/asset/img/favicon.ico" > 	
+	<!-- BEGIN - integrazione con Piwik -->
+		<!--<script src="//www.inps.it/statjs/stat.js" type="text/javascript"></script>-->
+        
+	<!-- END - integrazione con Piwik -->	
+	<script type="text/javascript" src="//www.inps.it/bussola/include/newBussola.js?v=3" ></script>
+	
+        
+    
+    
+
+		<link href="/PassiWeb/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/PassiWeb/css/newStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="/PassiWeb/fonts/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->        
+                
+	</head>
+	<body>
+		<!-- DIV BUSSOLA -->
+		<div id="buzzola" style="display:none"><!-- SCRIPT verifica frame --><script type="text/javascript">if(window.top==window.self){document.getElementById('buzzola').style.display='block';}</script>
+     
+		
+    <!-- Inizio javascript sentiment -->
+        <script type="text/javascript">
+            var isLoggedPassi = false;
+
+            function scriviCookie(nomeCookie, valoreCookie, durataCookie) {
+                var scadenza = new Date();
+                var adesso = new Date();
+                scadenza.setTime(adesso.getTime() + (parseInt(durataCookie) * 3600000));
+                document.cookie = nomeCookie + '=' + encodeURIComponent(valoreCookie) + '; expires=' + scadenza.toGMTString() + '; path=/';
+            }
+
+            function leggiCookie(nomeCookie) {
+                if (document.cookie.length > 0) {
+                    var inizio = document.cookie.indexOf(nomeCookie + "=");
+                    if (inizio != -1) {
+                        inizio = inizio + nomeCookie.length + 1;
+                        var fine = document.cookie.indexOf(";", inizio);
+                        if (fine == -1) fine = document.cookie.length;
+                        return unescape(document.cookie.substring(inizio, fine));
+                    } else {
+                        return "";
+                    }
+                }
+                return "";
+            }
+            function ResizeSmart() { 
+                if ($(window).width() < 1100) 
+                    {
+                        // alert($(window).height());                                                
+                        $("#objNewcerca").css("display", "none");
+                        $("#ulTopNpiParte1").css("display", "none");
+                        $("#objNewBTable").css("min-width", "34px");
+                        $("#objNewBTable").css("width", "100%");
+                        $("#lilogout1 a").css("padding-right", "4px");
+                        $("#lilogout2 a").css("padding-right", "4px");
+                        $("#lilogout3 a").css("padding-right", "4px");
+                        $("#lilogout4 a").css("padding-right", "4px");
+                        $("#lilogout1 a").css("padding-left", "4px");
+                        $("#lilogout2 a").css("padding-left", "4px");
+                        $("#lilogout3 a").css("padding-left", "4px");
+                        $("#lilogout4 a").css("padding-left", "4px");
+                        if (isLoggedPassi) {
+                            $("#lilogout1").css('display', 'none');
+                            $("#lilogout2").css('display', 'none');
+                        }
+                    }
+                    else {
+                        // alert($(window).height());                                                
+                        $("#objNewcerca").css("display", "");
+                        $("#ulTopNpiParte1").css("display", "");
+                        $("#lilogout1 a").css("padding-right", "10px");
+                        $("#lilogout2 a").css("padding-right", "10px");
+                        $("#lilogout3 a").css("padding-right", "10px");
+                        $("#lilogout4 a").css("padding-right", "10px");
+                        $("#lilogout1 a").css("padding-left", "10px");
+                        $("#lilogout2 a").css("padding-left", "10px");
+                        $("#lilogout3 a").css("padding-left", "10px");
+                        $("#lilogout4 a").css("padding-left", "10px");
+                        if (isLoggedPassi) {
+                            $("#lilogout1").css('display', 'inline');
+                            $("#lilogout2").css('display', 'inline');
+                        }
+                    }
+             
+            }
+
+            $(window).resize(function () {
+                ResizeSmart();
+            });
+
+
+            $('document').ready(
+
+                function () {
+                    ResizeSmart();
+                    var chiave = 'true';
+                    if (chiave.toLowerCase() == 'true')
+                        if (leggiCookie('newSCCSB') == '') {
+                        } else {
+                            try {
+                                if (isNaN(leggiCookie('newSCCSB')) == false && leggiCookie('newSCCSB') != '0') {
+                                    isLoggedPassi = true;
+                                    var datoPassi = new Date(Number(leggiCookie('newSCCSB')));
+                                    var tempo = '<span id="UltimoAccessoPassi">Ultimo accesso: ' + aggiungiZero(datoPassi.getDate()) + '/' + aggiungiZero(Number(datoPassi.getMonth()) + 1) + '/' + datoPassi.getFullYear() + ' ' + aggiungiZero(datoPassi.getHours()) + ':' + aggiungiZero(datoPassi.getMinutes()) + "<\/span>";
+                                    var links = '<a href="https://serviziweb2.inps.it/PassiWeb/ChangeContacts">Modifica contatti<\/a><a href="https://serviziweb2.inps.it/PassiWeb/jsp/changePin/index.jsp">Modifica PIN<\/a>';
+                                    $('#divlogout2').html(tempo);
+                                    $("#divlogout2").css('display', 'inline');
+
+                                    if ($(window).width() < 1100) {
+                                        $("#lilogout1").css('display', 'none');
+                                        $("#lilogout2").css('display', 'none');
+
+                                    }
+                                    else {
+                                        $("#lilogout1").css('display', 'inline');
+                                        $("#lilogout2").css('display', 'inline');
+
+                                    }
+                                    $("#lilogout3").css('display', 'inline');
+                                    
+                                }
+                                $('#sTrova').css('max-width', ($('#sTrova').css('width').toString().replace('px', '') - 100) + 'px');
+                                $("#logout").css('display', 'initial');
+                                $("#ricerca").css('margin-right', '120px');
+                            }
+                            catch (err) { }
+                        }
+                }
+            );
+             
+            function aggiungiZero(iNumero)
+            {
+                var asd = iNumero;
+                if (asd < 10)
+                {
+                    return "0" + iNumero;
+                }
+                else
+                {
+                    return iNumero;
+                }
+            }
+
+            $(document).ready(function () {
+                $("#sTrova").attr("autocomplete", "off");
+            });
+            
+        </script>
+    <!-- Fine javascript sentiment -->
+        
+
+	
+   <table id="objNewBTable" style="border-spacing:0; padding:0; border:0"  >  
+		<tr id="objNewBTr1"> 
+			<td id="objNewBTr1Td1" colspan="2">
+				<a href="//www.inps.it//nuovoportaleinps/default.aspx" id="objNewBTr1Td1logo" title="Torna alla Home Page" ><img src="//www.inps.it/bussola/Images/objNewBTr1Td1_bg.png" alt="Vai alla Home Page" title="E-INPS Istituto Nazionale Previdenza Sociale" > </a>
+				<div id="objNewIst">
+                    <ul class="pull-left" id='ulTopNpiParte1'>
+                        <li class='first'>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=75">
+L'Istituto
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=76">
+Dati, ricerche e bilanci 
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=77">
+Avvisi, bandi e fatturazione
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=78">
+INPS Comunica
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=79">
+Prestazioni e servizi
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=80">
+Amministrazione trasparente
+</a>
+</li>
+ 
+                    </ul> 
+                    <ul class="pull-right">
+                        <li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=81">
+Assistenza
+</a>
+</li>
+<li>
+<a style='vertical-align:top' href="//www.inps.it//nuovoportaleinps/default.aspx?iIDLink=82">
+Contatti
+</a>
+</li>
+<li id="socialBussolaNPI" class="dropdown dropdown-social collapse-item">
+   <a style='vertical-align:top' href="#" title="Social" class="dropdown-toggle"><em style="vertical-align: top;padding-top: 12px;" class="fa fa-share-alt"></em></a>
+  <ul class="dropdown-menu">
+      <li class="social"><a title="Facebook" href="https://www.facebook.com/INPS.PerLaFamiglia/"><span class=""><em class="fa fa-facebook-square"></em>Facebook</span></a></li>
+      <li class="social"><a title="Twitter" href="http://www.twitter.com/Inps_it"><span class=""><em class="fa fa-twitter"></em>Twitter</span></a></li>
+      <li class="social"><a title="YouTube" href="https://www.youtube.com/user/INPSComunica"><span class=""><em class="fa fa-youtube-play"></em>YouTube</span></a></li>
+      <li class="social"><a title="LinkedIn" href="https://www.linkedin.com/company/inps-official/"><span class=""><em class="fa fa-linkedin-square"></em>LinkedIn</span></a></li>
+      <li class="social"><a title="Instagram" href="https://www.instagram.com/inps_social/"><span class=""><em class="fa fa-instagram"></em>Instagram</span></a></li>
+  </ul>
+</li>
+ 
+                    </ul> 
+                </div>			
+			</td>
+		</tr>
+		<tr id="objNewBTr2">
+			<td colspan="2"  id="objNewBTr2Td1">
+				<a href="//www.inps.it//nuovoportaleinps/default.aspx" id="objNewBTr2Td1logo" title="Torna alla Home Page" ><img src="//www.inps.it/bussola/Images/objNewBTr2Td1logo_bg.png" alt="Vai alla Home Page" title="E-INPS Istituto Nazionale Previdenza Sociale" > </a> 				 
+				<ul class="nav navbar-nav hide-nav" >
+                    <li>
+                        <a href="//www.inps.it//nuovoportaleinps/default.aspx" title="Torna indietro" class="back" >
+                            <em class="fa fa-arrow-circle-o-left "></em> 
+                            Indietro
+                        </a>
+                    </li>
+                    <li id='lilogout4' ><a  href="https://www.inps.it/nuovoportaleinps/default.aspx?accessoinps=1" title="Vai a MyINPS" class="" >Vai a MyINPS</a> </li>
+                    <li id='lilogout1' style='display:none'>
+                        <a  href="https://serviziweb2.inps.it/PassiWeb/ChangeContacts" title="Modifica contatto" class="" >Modifica contatti</a> 
+                    </li>
+                    <li id='lilogout2' style='display:none'>
+                        <a  href="https://serviziweb2.inps.it/PassiWeb/jsp/changePin/index.jsp" title="Modifica PIN" class="" >Modifica PIN</a> 
+                    </li>
+                    
+                    <li id='lilogout3' style='display:none'>
+                        <a  href="https://serviziweb2.inps.it/PassiWeb/jsp/logout.jsp" title="Esci" class="" >Esci</a> 
+                    </li>
+                </ul>
+				
+				<div id="objNewcerca">
+					<label for="sTrova" >Testo da cercare</label> 
+					<input accesskey="T" class="objNewcerca2" type="text" id="sTrova" name="sTrova" maxlength="50"    onkeydown="if (event.keyCode == 13) window.location='//www.inps.it/search122/ricercaNew.aspx?sTrova='+document.getElementById('sTrova').value;"> 
+					<a href="#" onclick="JavaScript: window.location='//www.inps.it/search122/ricercaNew.aspx?sTrova='+document.getElementById('sTrova').value;"> 
+						<img src="//www.inps.it/bussola/Images/trova.png" alt="Trova in INPS" id="btTrova" > 
+					</a>
+					<script src="//www.inps.it/search122/js/ricerca-b.js" type="text/javascript"></script>
+				</div>
+
+                
+			</td>
+		</tr>
+
+	  
+	<tr id="objNewBTr4"> 
+		<td id="objNewBTr4Td1" colspan="1">  			
+ 			  <a href="//www.inps.it//nuovoportaleinps/default.aspx" title="Home page" > <em class="fa fa-home"></em> </a><abbr> / </abbr> <a class="LinkServSott" href="//www.inps.it//nuovoportaleinps/default.aspx?iPrestazioni=94" >Prestazioni e Servizi</a> <abbr> / </abbr> <span class="current">Autenticazione</span>		
+		</td> 
+		<td id="objNewBTr4Td2" colspan="1"> 
+			<noscript><div style="float:left;">Il broswser ha JavaScript disabilitato: &egrave; possibile effetuare la ricerca&nbsp;dalla&nbsp;<a href="//www.inps.it//nuovoportaleinps/default.aspx">Home&nbsp;Page</a>&nbsp;&nbsp;&nbsp;&nbsp;</div></noscript> 
+			<div id="divlogout2" style='display:none;'>
+
+            </div>
+            
+            
+            
+		</td> 
+	</tr> 
+	<!-- data generazione: 02/04/2020 17:37:09 --><!-- Subversion B del 27-01-2011 -->
+</table>			
+<hr class="BusHr" >  <!-- Versione 5.41 del 25-03-2019 ore 15:00 -->
+
+<div id="search-spotlight" class="search-quick-results background-gray--lighter hidden">
+	<div class="container">
+		<div class="row" id="objInnerResult"></div>
+		<div class="row">
+			<div class="col-md-offset-4 col-md-4">
+				<a id="search-spotlight-all" class="btn btn-primary" href="/search122/ricercaNew.aspx?sTrova=">Tutti i risultati </a>
+			</div>
+		</div>	
+	</div>
+</div>
+
+<script type="text/javascript">DetectFrameEraseBussola(); </script> 
+
+<script type="text/javascript">
+ 
+     function rimuovimenuaziende(){
+ 
+  var sPath = window.location.toString();
+ 
+  if (sPath == '') return;
+ 
+  var sPath2 = window.location.toString();
+ 
+  try { sPath2 = parent.window.location.toString(); } catch (e) { sPath2 = '' }
+ 
+if (sPath != sPath2) {
+ 
+   var bEliminaBussola = true;
+ 
+ 
+ 
+   try { if (parent.window.ifrmApplicazioni.location.toString().length > 0) bEliminaBussola = false }
+ 
+   catch (e) { }
+ 
+   try { if (parent.window.frameBussola.location.toString().length > 0) bEliminaBussola = false }
+ 
+   catch (e) { }
+ 
+   
+ 
+   if (bEliminaBussola) {
+ 
+      var objTmp;
+ 
+       objTmp = document.getElementById("tbTestata");
+ 
+     if (objTmp != null) {
+ 
+           var sStringa = objTmp.style["cssText"];
+ 
+             if (sStringa.indexOf("menuaziende") > -1) {
+ 
+objTmp = document.getElementById("tbTestata");
+ 
+objTmp.style.display = "none";
+ 
+
+ 
+try{ objTmp = document.getElementById("divIntestazione");
+ 
+ objTmp.style.display = "none";} catch(ex) {}      objTmp = document.getElementsByTagName("TABLE")[3];
+ 
+           if (objTmp.className =="menuOrizzontaleCella") objTmp.style.display = "none";
+ 
+         objTmp = document.getElementsByTagName("TABLE")[4];
+ 
+           if (objTmp.className =="menuOrizzontaleCella") objTmp.style.display = "none";
+ 
+        objTmp = document.getElementsByTagName("TABLE")[5];
+ 
+           if (objTmp.className =="menuOrizzontaleCella") objTmp.style.display = "none";
+ 
+        
+   
+       for (i=0;i<document.getElementsByTagName("A").length;i++)
+
+			if (document.getElementsByTagName("A")[i].href.toLowerCase().indexOf("menuaziende/default.aspx")>0)
+ 
+				document.getElementsByTagName("A")[i].style.display = "none";
+ }
+ 
+ }
+ 
+   
+ 
+     }
+ 
+  }
+ 
+}
+setTimeout(rimuovimenuaziende,100);
+try{
+
+setTimeout(rimuovimenuaziende,500);
+
+setTimeout(rimuovimenuaziende,2000);
+
+setTimeout(rimuovimenuaziende,4000);
+} catch(ex) {}
+
+</script> 
+
+    <!-- C1 -->
+<script type="text/javascript">
+	var pkDocumentTitle = document.title;
+    var pkBarPathDelPortale = "";
+	var sPathBarBussola = "/BA"; //C11
+	var sPrefixBussola = "/bussola/"; //C12
+    //C2
+    if (typeof (sPathBarDelPortaleNuova) !== 'undefined' && sPathBarDelPortaleNuova.length > 0) {
+		sPathBarDelPortale = sPathBarDelPortaleNuova;
+    }
+	//C10
+	if (typeof (sPathBarDelPortale) !== 'undefined') {
+		if (sPathBarDelPortale.substring(0, 1) != "/") {
+			pkBarPathDelPortale = "/";
+			sPathBarBussola += "/";
+		}
+		pkBarPathDelPortale += sPathBarDelPortale;
+		
+		sPathBarBussola += sPathBarDelPortale;
+		sPathBarBussola = sPathBarBussola.replace(sPrefixBussola,"/");
+	}
+	else {
+		pkBarPathDelPortale = window.location.href;
+		sPathBarBussola += "/";
+	}
+
+	var _paq = _paq || [];
+	/* C3 */
+	//_paq.push(["setCookieDomain", "*.inps.it"]);
+	//_paq.push(["setDocumentTitle", sPathBarDelPortaleNuova]);
+	_paq.push(["setDocumentTitle", sPathBarBussola]);
+	_paq.push(['setCustomUrl', location.href.toLowerCase()]);
+	//C9
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		//var u = "//**/stat3/"; //C4
+		//var u = "//**/stat3/"; //C5
+		var u = "//www.inps.it/stat3/"; //C6
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', '2']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	})();
+
+	/* //C13
+
+		//C7
+
+
+	//C8
+
+	*/ //fine C13
+	
+	//C7
+
+</script>
+<noscript><p><img src="//www.inps.it/stat3/piwik.php?idsite=2&rec=1" style="border:0;" alt=""  ></p></noscript>
+<!-- End C1 -->
+
+    <script type="text/javascript">
+        /* Apertura/chiusura menu social al click */
+        $("#socialBussolaNPI a").click(function () {
+            $(this).parent().toggleClass("open");
+        });
+    </script>
+</div>
+		<!-- MAIN DIV -->
+		 
+
+ <!-- cache puliscitemplate key PulisciTemplate11DallaBussolalang=--><div id="mainDiv"><!-- CH -->
+				
+		<!-- NEW LOGIN -->
+		<div class="container login_container" style="margin-top: 30px; margin-bottom: 30px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span style="margin-top: 10px; color: #007db3; font-size: 16px; font-weight: 700;" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span style="font-size: 16px; font-weight: 700; color: #007db3;">&nbsp;Autenticazione</span>
+                </div>
+            </div>            
+            <div class="login-nav-pills-ul">                       
+	            <ul class="nav nav-pills loginNav">
+	                <li role="presentation" class="active"><a href="#">PIN</a></li>                
+	                
+								<li role="presentation"><a href="spid/loginSPID.jsp?uri=https%3A%2F%2Fwww.inps.it%2Fmyinps%2Fdefault.aspx&amp;S=S&amp;srcPortal=null&amp;mode=null">SPID</a></li>
+								
+					
+								<li role="presentation"><a href="cie/loginCIE.jsp?uri=https%3A%2F%2Fwww.inps.it%2Fmyinps%2Fdefault.aspx&amp;S=S&amp;srcPortal=null&amp;mode=null">CIE</a></li>
+								
+	                <li role="presentation"><a href="SSLAuth/scLogin.jsp?uri=https%3A%2F%2Fwww.inps.it%2Fmyinps%2Fdefault.aspx&amp;S=S&amp;srcPortal=null&amp;mode=null">CNS</a></li>
+	            </ul>	            
+	        </div>                                                
+            <!-- Form Login -->
+            <form id="page" method="post" action="/PassiWeb/CheckLogin" style="margin-top: 30px;">
+                <!-- Campi hidden -->
+				<input type="hidden" name="uri" value="https://www.inps.it/myinps/default.aspx">
+				<input type="hidden" name="S" value="S">
+				<input type="hidden" name="srcPortal" value="null">				
+				<!-- Codice Fiscale -->
+				<div class="form-group col-xs-12 col-sm-9 col-md-9 col-lg-9">
+					<label class=loginpin_label for="userID">Codice Fiscale</label>
+					<input type="text" id="userID" name="utente" class="form-control loginpin_input" placeholder="Codice Fiscale" maxlength="16" autofocus>					
+                </div>
+				<!-- PIN -->
+				<div class="form-group col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                    <label class=loginpin_label for="inputPassword">PIN</label>
+                    <div class="input-group">
+                    	<div class="input-group-addon loginpin-input-group-addon"><span style="color: #007db3;" class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>           
+                    	<input type="password" id="inputPassword" name="password" class="form-control loginpin_input" placeholder="PIN" maxlength="16">
+                    </div>                    
+                </div>
+                <!-- Button Accedi -->
+				<div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                    <label class="loginpin_label hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <button class="login_btn login_btn-primary" type="submit" style="height: 36px;">Accedi</button>
+                </div>				
+            </form>	      		      	
+            <!-- MESSAGGIO DI ERRORE -->
+            
+			<div class="login_paragrafo_secondario col-xs-12">			
+				Per l'accesso ai servizi online INPS &egrave; necessario avere un PIN rilasciato 
+				dall'Istituto, o una identit&agrave; SPID almeno di livello 2, o una Carta di 
+				identit&agrave; elettronica 3.0 (CIE), o una Carta Nazionale dei Servizi (CNS).				
+			</div>									            
+            <div class="login_paragrafo_secondario col-xs-12" style="margin-top: 10px;">
+                <a class="loginpin_link" href="infoLogin.jsp?S=S" data-toggle="modal" data-target="#infoLoginModal">Istruzioni per l'accesso</a>                               
+            </div>                                  
+            <div class="login_paragrafo_secondario col-xs-12" style="margin-top: 10px;">
+            <a class="loginpin_link" href="https://serviziweb2.inps.it/RichiestaPin/jsp/smarrimento/verifica.jsp?S=S">Hai smarrito il tuo PIN?</a>
+
+            </div>
+            
+            <!-- link Richiedi e gestisci il tuo PIN -->
+            <div class="login_paragrafo_secondario col-xs-12" style="margin-top: 10px; margin-bottom: 10px;">
+            <a class="loginpin_link" target="_top" href="https://serviziweb2.inps.it/RichiestaPin/jsp/menu.jsp">Richiedi e gestisci il tuo PIN</a>
+                       
+            </div>
+            	    	
+        </div><!-- /container -->
+		<!-- /NEW LOGIN -->		
+		<!-- Modal InfoLogin -->
+        <div class="modal fade" id="infoLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalInfoLogin">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">                                        
+                </div>
+            </div>
+        </div>		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="/PassiWeb/bootstrap/jquery/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="/PassiWeb/bootstrap/js/bootstrap.min.js"></script>
+				
+		</div>
+	</body>
+</html>
